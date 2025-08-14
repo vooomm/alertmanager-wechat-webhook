@@ -1,0 +1,15 @@
+[Unit]
+Description=wechat robot webhook service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/alertmanager-wechat-webhook  --addr=5001 --robotkey=xxxxxx-xxxxx-xxxxx-xxxxxx-xxxxxxx
+ExecReload=/bin/kill -HUP $MAINPID
+
+Restart=always
+RestartSec=5
+LimitNOFILE=2048
+
+[Install]
+WantedBy=multi-user.target
