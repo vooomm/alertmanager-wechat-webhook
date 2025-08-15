@@ -75,3 +75,12 @@ curl -X POST "http://localhost:5001/webhook?key=xxxxxx-xxx-xxx-xxx-xxx" -H "Cont
 }'
 ```
 ![img.png](docs/images/img.png)
+
+### 2. alertmanager配置
+```bash
+receivers:
+- name: 'dingtalk-webhook'
+  webhook_configs:
+  - url: 'http://127.0.0.1:5001/webhook?key=xxxxxxxxxxxxxxxxxxxxx'
+    send_resolved: true
+```
